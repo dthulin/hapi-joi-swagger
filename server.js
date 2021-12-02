@@ -4,6 +4,8 @@ const Vision = require('@hapi/vision');
 const HapiSwagger = require('hapi-swagger');
 const Pack = require('./package');
 
+const routes = require('./routs').routes;
+
 (async () => {
   const server = await new Hapi.Server({
     host: 'localhost',
@@ -26,13 +28,7 @@ const Pack = require('./package');
     },
   ]);
 
-  server.route({
-    method: 'GET',
-    path: '/',
-    handler: (request, h) => {
-      return 'Hello World!';
-    },
-  });
+  server.route(routes(server));
 
   try {
     await server.start();
