@@ -4,7 +4,7 @@ const Vision = require('@hapi/vision');
 const HapiSwagger = require('hapi-swagger');
 const Pack = require('./package');
 
-const routes = require('./routs').routes;
+const routes = require('./routes').routes;
 
 (async () => {
   const server = await new Hapi.Server({

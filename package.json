@@ -7,6 +7,8 @@
   },
   "dependencies": {
     "@hapi/hapi": "^20.2.1",
+    "@hapi/inert": "^6.0.4",
+    "@hapi/vision": "^6.1.0",
     "boom": "^7.3.0",
     "hapi-swagger": "^14.2.4",
     "joi": "^17.5.0",
@@ -14,5 +16,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-  }
+  },
+  "_id": "node-starter@0.0.0"
 }
