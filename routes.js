@@ -1,9 +1,23 @@
-const { helloWorldHandler } = require('./handlers/helloWorld');
+const Joi = require('joi');
+const { helloWorldHandler } = require('./app/handlers/helloWorldHandler');
 
-const routes = (server) => {
-  server.route({ method: 'GET', path: '/', handler: helloWorldHandler });
-};
-
-module.exports = {
-  routes,
-};
+const Routes = [
+  {
+    method: 'POST',
+    path: '/items',
+    options: {
+      handler: (request, h) => {
+        return 'OK';
+      },
+      tags: ['api'],
+      validate: {
+        payload: Joi.object({
+          a: Joi.number(),
+          b: Joi.number(),
+        }),
+      },
+    },
+  },
+  { method: 'GET', path: '/hello', options: helloWorldHandler },
+];
+module.exports = { Routes };

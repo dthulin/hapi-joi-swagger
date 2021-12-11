@@ -3,8 +3,7 @@ const Inert = require('@hapi/inert');
 const Vision = require('@hapi/vision');
 const HapiSwagger = require('hapi-swagger');
 const Pack = require('./package');
-
-const routes = require('./routes').routes;
+const { Routes } = require('./routes');
 
 (async () => {
   const server = await new Hapi.Server({
@@ -13,6 +12,10 @@ const routes = require('./routes').routes;
   });
 
   const swaggerOptions = {
+    // documentationPage: true,
+    // swaggerUI: true,
+    // basePath: '/v1',
+    documentationPath: '/',
     info: {
       title: 'Test API Documentation',
       version: Pack.version,
@@ -27,8 +30,6 @@ const routes = require('./routes').routes;
       options: swaggerOptions,
     },
   ]);
-
-  server.route(routes(server));
 
   try {
     await server.start();
