@@ -7,7 +7,10 @@ const Routes = [
     path: '/items',
     options: {
       handler: (request, h) => {
-        return 'OK';
+        return h
+          .response('OK')
+          .header('cache-control', 'no-cache')
+          .type('text/javascript');
       },
       tags: ['api'],
       validate: {
