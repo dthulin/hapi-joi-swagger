@@ -1,7 +1,23 @@
 const Joi = require('joi');
 
 const handler = (request, h) => {
-  return 'Hello, World!';
+  // return 'Hello, World!';
+  const response = h
+    .response('Hello, World! I love you!')
+    .header('cache-control', 'no-cache')
+    .type('application/json');
+  return response;
+
+  // let ret = '';
+  // ret = JSON.stringify(res);
+  // if (request == null || h == null){
+  //         return ret;
+  // }else{
+  //         const response = h.response(ret)
+  //                 .header('cache-control', 'no-cache')
+  //                 .type('application/json')
+  //         return response;
+  // }
 };
 
 const helloWorldHandler = {
