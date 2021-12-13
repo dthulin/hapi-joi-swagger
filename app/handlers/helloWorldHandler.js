@@ -2,9 +2,10 @@ const Joi = require('joi');
 
 const handler = (request, h) => {
   // return 'Hello, World!';
-  const response = h({ response: 'Hello, World!' })
+  const response = h
+    .response('Hello, World!')
     .header('cache-control', 'no-cache')
-    .type('application/json');
+    .type('text/javascript');
   return response;
 
   // let ret = '';
